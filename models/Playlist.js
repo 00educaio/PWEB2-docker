@@ -1,22 +1,25 @@
 import { DataTypes } from 'sequelize';
 
 export default (sequelize) =>
-  sequelize.define('Usuario', {
+  sequelize.define('Playlist', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    login: {
-      type: DataTypes.STRING(50),
+    id_usuario: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
     },
     nome: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
+      type: DataTypes.STRING,
+      length: 100
+    },
+    data_criacao: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
     },
   }, {
-    tableName: 'usuarios',
+    tableName: 'playlists',
     timestamps: false,
   });
